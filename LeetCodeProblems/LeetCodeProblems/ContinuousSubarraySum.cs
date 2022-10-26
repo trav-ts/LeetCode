@@ -32,8 +32,7 @@ namespace LeetCodeProblems
         /// <returns></returns>
         public bool CheckSubarraySum(int[] nums, int k)
         {
-            // Lets start with the two pointers
-            int left = 0;
+            // Lets start with the pointer
             int right = 0;
 
             // Next we go through the entire array from left to right.
