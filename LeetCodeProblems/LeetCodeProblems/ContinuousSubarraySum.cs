@@ -18,7 +18,7 @@ namespace LeetCodeProblems
     /// an integer n such that x = n * k. 0 is always a multiple of k.
     /// 
     /// </summary>
-    internal class ContinuousSubarraySum
+    public class ContinuousSubarraySum
     {
         /// <summary>
         /// 
@@ -33,13 +33,20 @@ namespace LeetCodeProblems
         public bool CheckSubarraySum(int[] nums, int k)
         {
             // Lets start with the pointer
-            int right = 0;
+            int sum = nums[0];
 
             // Next we go through the entire array from left to right.
             for(int i = 0; i < nums.Length; i++)
             {
-
+                for(int j = i+1; j < nums.Length; j++)
+                {
+                    sum += nums[j];
+                    if (sum / k == 0)
+                        return true;
+                }
+                sum = nums[i];
             }
+
             return false;
         }
     }
